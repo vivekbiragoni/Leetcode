@@ -56,8 +56,4 @@ This solution uses a recursion-based approach to perform a preorder traversal of
 - **Time Complexity:** The time complexity of the algorithm is O(N), where N is the number of nodes in the binary tree. This is because the algorithm visits each node exactly once.
 - **Space Complexity:** The space complexity is also O(N), where N is the number of nodes. This is due to the space used by the recursive call stack.
 
-This approach is straightforward and commonly used for tree traversal algorithms, providing an intuitive way to visit nodes in the desired order.
 
----
-
-Feel free to customize or expand upon these notes based on additional details or specific requirements for your submission on LeetCode.
