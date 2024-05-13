@@ -29,3 +29,33 @@
 	<li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.</li>
 	<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
+
+
+
+
+## Submission Notes
+
+### Problem: Binary Tree Level Order Traversal
+
+#### Approach:
+- This solution uses a queue-based approach to perform level order traversal of a binary tree.
+- It processes nodes level by level, pushing each level's values into the result vector.
+
+#### Algorithm:
+1. Initialize an empty queue `q` and a vector of vectors `result` to store the level order traversal.
+2. Push the root node into the queue `q`.
+3. While the queue is not empty:
+   - Initialize an empty vector `currentLevel` to store the values of the current level.
+   - Get the size of the queue (`levelSize`) to process nodes level by level.
+   - Iterate `levelSize` times:
+     - Dequeue a node `p` from the front of the queue.
+     - Push `p->val` into `currentLevel`.
+     - Enqueue `p->left` and `p->right` if they exist.
+   - Push `currentLevel` into the `result` vector.
+4. Return the `result` vector containing the level order traversal.
+
+#### Complexity Analysis:
+- **Time Complexity:** O(N), where N is the number of nodes in the binary tree. Each node is processed exactly once.
+- **Space Complexity:** O(N) due to the queue `q` and the `result` vector storing the level order traversal.
+
+
