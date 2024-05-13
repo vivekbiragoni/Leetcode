@@ -32,3 +32,17 @@
 
 <p>&nbsp;</p>
 <strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?
+
+
+
+
+
+## Submission Notes for the recursive code
+
+### Problem: Binary Tree Postorder Traversal
+
+- Approach: This solution uses a recursive approach for postorder traversal of a binary tree.
+- Logic: Traverse left subtree, then right subtree, and finally push the node's value.
+- Time Complexity: O(N), where N is the number of nodes in the binary tree.
+- Space Complexity: O(N) due to the recursive call stack.
+
