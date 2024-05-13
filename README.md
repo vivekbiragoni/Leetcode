@@ -1,6 +1,3 @@
-Certainly! Here's the updated `README.md` template with acknowledgements to Striver and Abdul Bari for their courses:
-
----
 
 # LeetCode Problem Solutions
 
