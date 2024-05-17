@@ -1,6 +1,3 @@
-Certainly! Here are the submission notes for the provided "House Robber II" solution:
-
----
 
 **Submission Notes: House Robber II**
 
@@ -48,6 +45,4 @@ Certainly! Here are the submission notes for the provided "House Robber II" solu
    - The number of houses (n) is at least 1 and at most 100.
    - Each house contains a non-negative integer representing the amount of money.
 
----
 
-This submission note provides a detailed explanation of the problem, the dynamic programming approach used to solve it, complexity analysis, and example test cases. It effectively documents the solution strategy for "House Robber II."
