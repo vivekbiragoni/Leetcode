@@ -12,22 +12,57 @@ class Solution {
 public:
     bool isPalindrome(ListNode* head) {
         // using extra space
-        if(!head) return true;
+        // if(!head) return true;
 
-        stack<ListNode*> st;
-        ListNode* current = head;
-        while(current){
-            st.push(current);
-            current= current->next;
+        // stack<ListNode*> st;
+        // ListNode* current = head;
+        // while(current){
+        //     st.push(current);
+        //     current= current->next;
+        // }
+        // current = head;
+        // while(current){
+        //     if((current->val)!=(st.top()->val)){
+        //         return false;
+        //     }
+        //     current=current->next;
+        //     st.pop();
+        // }
+        // return true;
+
+        // using the hare algo
+        ListNode* fast = head;
+        ListNode* slow = head;
+
+        while(fast!=NULL && fast->next != NULL){
+            fast = fast->next->next;
+            slow = slow->next;
         }
-        current = head;
+        // now my slow pointer is at the middle of the ll
+        ListNode* nextNode = nullptr; 
+        ListNode* prev = nullptr;
+        ListNode* current = slow;
         while(current){
-            if((current->val)!=(st.top()->val)){
+            nextNode = current->next;
+
+            current->next = prev;
+            prev = current;
+            current= nextNode;
+        }
+
+        ListNode* start= head;
+        ListNode* mid = prev;
+        while(mid!=nullptr){
+            if(start->val != mid->val){
                 return false;
             }
-            current=current->next;
-            st.pop();
+            start = start->next;
+            mid = mid->next;
         }
         return true;
+
+
+
+
     }
 };
