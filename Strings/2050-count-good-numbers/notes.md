@@ -1,3 +1,5 @@
+Sure, I can provide a better-formatted version for your markdown tool. Here it is:
+
 ### Problem: Count Good Numbers
 
 Given a digit string \( s \) of length \( n \), we need to count the number of "good" digit strings. A digit string is considered "good" if:
@@ -13,7 +15,7 @@ The result should be returned modulo \( 10^9 + 7 \).
 - **Explanation**: The good numbers of length 4 include all combinations of even digits (0, 2, 4, 6, 8) at even indices and prime digits (2, 3, 5, 7) at odd indices.
 
 ### Constraints
-- \( 1 \leq n \leq 10^{15} \)
+- 1 <= n <= 10^15
 
 ### Solution Explanation
 
@@ -24,11 +26,11 @@ The solution uses modular exponentiation to efficiently compute large powers und
    - There are 4 choices (2, 3, 5, 7) for each odd position.
 
 2. **Number of Even and Odd Indexed Positions**:
-   - \( \text{count\_of\_5s} \): Number of even indexed positions \( = \lceil \frac{n}{2} \rceil \).
-   - \( \text{count\_of\_4s} \): Number of odd indexed positions \( = \lfloor \frac{n}{2} \rfloor \).
+   - count\_of\_5s: Number of even indexed positions \( = n - n / 2 \).
+   - count\_of\_4s: Number of odd indexed positions \( = n / 2 \).
 
 3. **Modular Exponentiation**:
-   - Computes the powers \( 5^{\text{count\_of\_5s}} \) and \( 4^{\text{count\_of\_4s}} \) modulo \( 10^9 + 7 \).
+   - Computes the powers \( 5^count\_of\_5s} \) and \( 4^count\_of\_4s \) modulo \( 10^9 + 7 \).
 
 ### Solution Code
 
