@@ -33,7 +33,7 @@ The time complexity of this sorting algorithm is O(n^2), where n is the number o
 
 This code provides an interesting example of using recursion to solve a seemingly non-recursive problem. By leveraging recursion to manage the stack's elements, the algorithm sorts the stack in ascending order without needing any additional data structures beyond the stacks themselves.
 
-
+<hr/>
 
 To understand the recursive process in sorting a stack using the given code, let's break down the recursive calls and visualize the recursion tree. We'll use a smaller stack to keep things manageable. Let's assume the initial stack is `3, 1, 4, 2`.
 
