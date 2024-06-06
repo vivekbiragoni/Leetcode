@@ -35,3 +35,116 @@ The provided code implements the `myPow` function, which efficiently computes th
 #### Conclusion
 
 The `myPow` implementation demonstrates an efficient and robust approach to computing powers using the exponentiation by squaring technique. The code incorporates optimizations for both performance and accuracy, making it suitable for a wide range of applications requiring exponentiation operations.
+
+
+
+
+## To solve the power function \( \text{pow}(x, n) \) using recursion,
+
+
+this code doesnt work unless the negative case is taken care of, this is just to learn recursion 
+
+To solve the power function \( \text{pow}(x, n) \) using recursion, you need to define a base condition to stop the recursion. The base condition for the power function can be derived from the mathematical definition of exponentiation:
+
+1. Any number raised to the power of 0 is 1.
+2. Any number raised to the power of 1 is the number itself.
+
+Here's a simple implementation using recursion:
+
+### Base Condition
+The base conditions for this recursive function are:
+1. If \( n == 0 \), return 1 (since \( x^0 = 1 \)).
+2. If \( n == 1 \), return \( x \) (since \( x^1 = x \)).
+
+### Recursive Step
+For the recursive step, we reduce the problem size by breaking it down into smaller subproblems:
+- If \( n \) is even, we can use the property \( x^n = (x^{n/2})^2 \).
+- If \( n \) is odd, we can use the property \( x^n = x \times x^{n-1} \).
+
+### Implementation
+Here’s a simple implementation in C++:
+
+```cpp
+class Solution {
+public:
+    double myPow(double x, int n) {
+        // Handle the case of negative exponents
+        if (n < 0) {
+            x = 1 / x;
+            n = -n;
+        }
+        
+        // Base condition
+        if (n == 0) return 1;  // x^0 = 1
+        if (n == 1) return x;  // x^1 = x
+        
+        // Recursive step
+        if (n % 2 == 0) {
+            double half = myPow(x, n / 2);
+            return half * half;
+        } else {
+            return x * myPow(x, n - 1);
+        }
+    }
+};
+```
+### Recursion Tree for `myPow(2, 5)`
+
+We’ll represent each recursive call as a node in the tree. Each node will show the function call and its parameters.
+
+1. **Root Node: `myPow(2, 5)`**
+   - \( n \) is odd, so it will split into:
+     - `2 * myPow(2, 4)`
+
+2. **First Level: `myPow(2, 4)`**
+   - \( n \) is even, so it will split into:
+     - `myPow(2, 2) * myPow(2, 2)`
+
+3. **Second Level: `myPow(2, 2)`**
+   - \( n \) is even, so it will split into:
+     - `myPow(2, 1) * myPow(2, 1)`
+
+4. **Third Level: `myPow(2, 1)`**
+   - \( n \) is 1, so it returns `2`.
+
+### Visual Representation
+
+```
+myPow(2, 5)
+│
+├── 2 * myPow(2, 4)
+│   │
+│   └── myPow(2, 4)
+│       │
+│       ├── myPow(2, 2) * myPow(2, 2)
+│       │   │
+│       │   ├── myPow(2, 1) * myPow(2, 1)
+│       │   │   │
+│       │   │   └── 2
+│       │   │   └── 2
+│       │   │
+│       │   └── 4 (result of myPow(2, 2))
+│       │
+│       └── 16 (result of myPow(2, 4))
+│
+└── 32 (result of myPow(2, 5))
+```
+
+### Explanation of the Tree
+
+1. **Root Node (`myPow(2, 5)`)**:
+   - This call splits into `2 * myPow(2, 4)` because \( n \) is odd.
+
+2. **First Level (`myPow(2, 4)`)**:
+   - This call splits into `myPow(2, 2) * myPow(2, 2)` because \( n \) is even.
+
+3. **Second Level (`myPow(2, 2)`)**:
+   - This call splits into `myPow(2, 1) * myPow(2, 1)` because \( n \) is even.
+
+4. **Third Level (`myPow(2, 1)`)**:
+   - This call returns `2` because \( n \) is 1 (base case).
+
+5. **Combining Results**:
+   - `myPow(2, 1)` returns `2`, so `myPow(2, 2)` becomes `2 * 2 = 4`.
+   - `myPow(2, 4)` becomes `4 * 4 = 16`.
+   - Finally, `myPow(2, 5)` becomes `2 * 16 = 32`.
