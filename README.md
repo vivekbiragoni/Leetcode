@@ -6,64 +6,38 @@ Welcome to my LeetCode problem solutions repository! Here, you'll find my soluti
 ## Topics Covered
 
 - **Array**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **String**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **Linked List**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **Binary Search**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
 
 - **Dynamic Programming**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **Tree**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
 
 - **Graph**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **Sorting and Searching**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **Backtracking**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **Greedy**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **Stack and Queue**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 - **Hashing**
-  - Problem 1: Description
-  - Problem 2: Description
-  - ...
+
 
 ## Acknowledgements
 
