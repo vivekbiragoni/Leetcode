@@ -1,9 +1,10 @@
 class Solution {
 private:
     bool bfs(int start, vector<int>& color, vector<vector<int>>& graph) {
+
         queue<int> q;
         q.push(start);
-        color[start] = 0; // Start coloring with 0
+        color[start] = 0;
 
         while (!q.empty()) {
             int node = q.front();
@@ -23,8 +24,7 @@ private:
 public:
     bool isBipartite(vector<vector<int>>& graph) {
         int V = graph.size();
-        queue<int> q;
-        q.push(0);
+
         // int color[V];
         vector<int> color(V, -1);
         for (int i = 0; i < V; i++) {
