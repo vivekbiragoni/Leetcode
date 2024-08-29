@@ -29,10 +29,10 @@ class Solution {
 public:
     int removeStones(vector<vector<int>>& stones) {
         int n = stones.size();
-        DisjointSet ds(30000);
+        DisjointSet ds(20002);
         for (auto& stone : stones) {
         int row = stone[0];
-        int col = stone[1] +15000;
+        int col = stone[1] +10001;
         ds.unionBySize(row, col);
     }
 
