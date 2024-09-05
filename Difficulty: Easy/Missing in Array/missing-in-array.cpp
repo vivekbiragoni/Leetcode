@@ -14,14 +14,14 @@ class Solution {
     int missingNumber(int n, vector<int>& arr) {
 
         // Your code goes here
-        int sum = 0;
-        for(auto num : arr){
-            sum += num; 
+        int cur=0;
+        for(int i=0;i<n-1;i++){
+            cur^=arr[i];
+            cur^=i+1;
         }
-        int totsum = (n*(n+1))/2;
-        return totsum - sum;
+        cur^=n;
+        return cur;
     }
-    
 };
 
 //{ Driver Code Starts.
