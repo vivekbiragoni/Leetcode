@@ -111,6 +111,46 @@ vector<int> topologicalSort(int V, vector<vector<int>> &adj) {
 }
 ```
 
+
+### Detecting Cycles in Directed Graphs (DFS-based approach)
+
+**Key Concept**: Use Depth First Search (DFS) with two arrays: 
+- **visited**: Tracks whether a node has been visited.
+- **instack**: Tracks whether a node is part of the current recursion stack.
+
+**Pattern**:
+1. Traverse the graph using DFS.
+2. If you encounter an unvisited node, recursively call DFS on its neighbors.
+3. If a neighbor is part of the current recursion stack (`instack`), a cycle is detected.
+4. Once a node's DFS is complete, remove it from the recursion stack.
+5. If no back edge is found during DFS, push the node onto a stack to store topological order.
+
+```cpp
+bool dfs(int node, vector<vector<int>> &adj, vector<bool> &visited, stack<int>& st, vector<bool> &instack){
+    visited[node] = true;
+    instack[node] = true;  // Mark the node as in the current recursion stack
+
+    for (auto adjNode: adj[node]) {
+        if (!visited[adjNode]) {
+            if (!dfs(adjNode, adj, visited, st, instack)) {
+                return false;  // Cycle detected
+            }
+        } else if (instack[adjNode]) {
+            return false;  // Back edge found, cycle exists
+        }
+    }
+
+    instack[node] = false;  // Remove from the recursion stack
+    st.push(node);  // Push node for topological sorting
+    return true;
+}
+```
+
+**Use Cases**:
+- Frequently used in questions involving detecting cycles in directed graphs.
+- Key component of algorithms like Topological Sorting and Dependency Resolution.
+
+
 ### 5. **Cycle Detection (DFS-based)**
    - **Purpose**: Detect a cycle in an undirected graph using DFS.
    - **Steps**:
