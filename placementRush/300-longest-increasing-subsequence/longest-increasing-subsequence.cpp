@@ -1,18 +1,23 @@
 class Solution {
 public:
-    int lengthOfLIS(vector<int>& nums) {
+    int solve(vector<int>& nums,vector<vector<int>>&dp, int ind, int prev_ind, int n){
         
-        int n = nums.size();
-        if(n==1) return 1;
-        vector<int> dp;
-        for(auto num: nums){
-            auto it = lower_bound(dp.begin(), dp.end(), num);
-            if(it==dp.end()){
-                dp.push_back(num);
-            }else{
-                *it = num;
-            }
+        if(ind==n) return 0;
+
+        if(dp[ind][prev_ind+1]!=-1) return dp[ind][prev_ind+1];
+
+        int notake = 0 + solve(nums, dp, ind+1, prev_ind, n);
+
+        int take = 0;
+        if(prev_ind==-1 || nums[ind]>nums[prev_ind]){
+            take = 1 + solve(nums, dp, ind+1, ind, n);
         }
-        return dp.size();
+
+        return dp[ind][prev_ind+1] = max(take, notake);
+    }
+    int lengthOfLIS(vector<int>& nums) {
+        int n = nums.size();
+        vector<vector<int>> dp(n, vector<int>(n+1, -1));
+        return solve(nums, dp, 0,-1,n);
     }
 };
