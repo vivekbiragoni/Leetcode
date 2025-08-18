@@ -1,9 +1,9 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        num_map = {}
+        numMap = {}
         for i, num in enumerate(nums):
-            complmnt = target - num
-            if complmnt in num_map:
-                return [num_map[complmnt], i]
-            num_map[num] = i
-        return []
+            compliment = target - num
+            if compliment in numMap: 
+                return [numMap[compliment], i]
+            numMap[num] = i
+        return [-1,-1]
